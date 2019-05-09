@@ -5,6 +5,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 var c = canvas.getContext('2d');
+var w = 100;
 
 var mouse = {
     x: undefined,
@@ -58,15 +59,20 @@ var circles = [];
 function init(){
 
     circles = [];
+    if(canvas.height < canvas.width){
+        w = canvas.height/8;
+    } else {
+        w = canvas.width/8;
+    }
 
-    for(var i = 0; i < 50; i++){
+    for(var i = 0; i < w; i++){
         var radius = 10;
         var x = canvas.width/2;
         var y = canvas.height/2;
         var color = getRandomColor();
         var radian = Math.random() * Math.PI * 2;
         var velocity = .02+Math.random()*.03;
-        var rotation = 100 + Math.random()*100;
+        var rotation = w + Math.random()*w;
 
         circles.push(new Circle(x, y, radius, color, radian, velocity, rotation));
     }
