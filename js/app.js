@@ -57,7 +57,9 @@ function Circle(x, y, radius, color, radian, velocity, dist) {
 var circles = [];
 
 function init(){
-
+    mouse.x = canvas.width/2;
+    mouse.y = canvas.height/2;
+    
     circles = [];
     if(canvas.height < canvas.width){
         w = canvas.height/8;
